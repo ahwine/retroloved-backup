@@ -1,0 +1,69 @@
+﻿╔════════════════════════════════════════════════════════════╗
+║          📧 PHPMAILER - QUICK REFERENCE CARD 📧           ║
+╚════════════════════════════════════════════════════════════╝
+
+📁 FILE LOCATIONS:
+   config/email.php              - Email configuration
+   composer.json                 - PHPMailer dependency
+   PHPMAILER_SETUP_GUIDE.md      - Complete guide
+
+🔧 QUICK SETUP (OPTION A - Gmail SMTP):
+
+   Step 1: Install PHPMailer
+   ┌─────────────────────────────────────────────┐
+   │ composer install                            │
+   └─────────────────────────────────────────────┘
+
+   Step 2: Get Gmail App Password
+   ┌─────────────────────────────────────────────┐
+   │ 1. Enable 2-Step Verification               │
+   │ 2. Go to: myaccount.google.com/apppasswords │
+   │ 3. Generate for "Mail" → "RetroLoved"       │
+   │ 4. Copy 16-character password               │
+   └─────────────────────────────────────────────┘
+
+   Step 3: Edit config/email.php
+   ┌─────────────────────────────────────────────┐
+   │ Line 9:  EMAIL_METHOD = 'SMTP'              │
+   │ Line 13: SMTP_USERNAME = 'your@gmail.com'   │
+   │ Line 14: SMTP_PASSWORD = 'apppassword'      │
+   │ Line 22: ADMIN_EMAIL = 'admin@email.com'    │
+   └─────────────────────────────────────────────┘
+
+🔧 QUICK SETUP (OPTION B - Development Mode):
+
+   Edit config/email.php line 9:
+   ┌─────────────────────────────────────────────┐
+   │ define('EMAIL_METHOD', 'MAIL');             │
+   └─────────────────────────────────────────────┘
+   
+   Done! System works without email.
+
+🧪 TESTING:
+
+   Contact Support:
+   • Submit form → Check admin email
+   • Verify data in admin panel
+   
+   Forgot Password:
+   • Request reset → Check user email
+   • If no email: Code in response JSON
+
+📧 EMAIL FEATURES:
+
+   ✅ Contact Support → Admin notification
+   ✅ Forgot Password → 6-digit code
+   ✅ Beautiful HTML templates
+   ✅ Professional design
+   ✅ Auto fallback if email fails
+   ✅ Data always saved
+
+⚠️ REMEMBER:
+
+   • App Password ≠ Gmail Password
+   • 2-Step Verification required
+   • Limit: 500 emails/day
+   • Never commit real credentials to Git
+
+📚 Full Guide: PHPMAILER_SETUP_GUIDE.md
+

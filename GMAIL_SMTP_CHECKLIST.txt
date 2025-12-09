@@ -1,0 +1,171 @@
+﻿╔══════════════════════════════════════════════════════════════════╗
+║                                                                  ║
+║          📧 GMAIL SMTP SETUP - COMPLETE CHECKLIST 📧            ║
+║                                                                  ║
+╚══════════════════════════════════════════════════════════════════╝
+
+✅ YANG SUDAH SELESAI:
+
+   ✅ EmailHelper class created (config/email.php)
+   ✅ Contact Support email integration
+   ✅ Forgot Password email integration
+   ✅ Autoloader created (vendor/autoload.php)
+   ✅ Test script created (tmp_rovodev_test_email.php)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📋 YANG PERLU ANDA LAKUKAN:
+
+┌────────────────────────────────────────────────────────────────┐
+│ STEP 1: Setup Gmail App Password                              │
+├────────────────────────────────────────────────────────────────┤
+│ □ Enable 2-Step Verification di Gmail                         │
+│   Link: https://myaccount.google.com/security                 │
+│                                                                │
+│ □ Generate App Password                                       │
+│   Link: https://myaccount.google.com/apppasswords             │
+│   - Select app: Mail                                          │
+│   - Select device: Other → "RetroLoved"                       │
+│   - Click Generate                                            │
+│   - Copy 16-character password (tanpa spasi!)                 │
+└────────────────────────────────────────────────────────────────┘
+
+┌────────────────────────────────────────────────────────────────┐
+│ STEP 2: Edit config/email.php                                 │
+├────────────────────────────────────────────────────────────────┤
+│ □ Buka file: config/email.php                                 │
+│                                                                │
+│ □ Line 13 - SMTP_USERNAME:                                    │
+│   define('SMTP_USERNAME', 'your-email@gmail.com');            │
+│   Ganti dengan: EMAIL GMAIL ANDA                              │
+│                                                                │
+│ □ Line 14 - SMTP_PASSWORD:                                    │
+│   define('SMTP_PASSWORD', 'your-app-password');               │
+│   Ganti dengan: APP PASSWORD (16 karakter, tanpa spasi)       │
+│                                                                │
+│ □ Line 22 - ADMIN_EMAIL:                                      │
+│   define('ADMIN_EMAIL', 'admin@retroloved.com');              │
+│   Ganti dengan: EMAIL UNTUK TERIMA NOTIFIKASI                 │
+│   (Bisa sama dengan Gmail Anda)                               │
+└────────────────────────────────────────────────────────────────┘
+
+┌────────────────────────────────────────────────────────────────┐
+│ STEP 3: Install PHPMailer (Choose ONE)                        │
+├────────────────────────────────────────────────────────────────┤
+│ OPTION A - Manual Download (Recommended):                     │
+│ □ Download: https://github.com/PHPMailer/PHPMailer/releases   │
+│ □ Extract PHPMailer-6.9.1.zip                                 │
+│ □ Copy folder 'src' ke: vendor/phpmailer/phpmailer/           │
+│ □ Verify: vendor/phpmailer/phpmailer/src/PHPMailer.php exist  │
+│                                                                │
+│ OPTION B - Use Composer (If installed):                       │
+│ □ Open terminal/command prompt                                │
+│ □ Run: composer install                                       │
+│ □ Wait for installation complete                              │
+│                                                                │
+│ OPTION C - Skip for Now (Testing mode):                       │
+│ □ Edit config/email.php line 9                                │
+│ □ Change: define('EMAIL_METHOD', 'MAIL');                     │
+│ □ System will work, emails won't send (expected)              │
+└────────────────────────────────────────────────────────────────┘
+
+┌────────────────────────────────────────────────────────────────┐
+│ STEP 4: Test Email System                                     │
+├────────────────────────────────────────────────────────────────┤
+│ □ Open terminal/command prompt                                │
+│ □ Run: php tmp_rovodev_test_email.php                         │
+│ □ Check output for errors                                     │
+│ □ Check email inbox for test message                          │
+│                                                                │
+│ If test successful:                                           │
+│ □ Delete test script: tmp_rovodev_test_email.php              │
+│                                                                │
+│ If test failed:                                               │
+│ □ Check configuration in config/email.php                     │
+│ □ Verify App Password is correct                              │
+│ □ Check error messages in output                              │
+└────────────────────────────────────────────────────────────────┘
+
+┌────────────────────────────────────────────────────────────────┐
+│ STEP 5: Test Real Features                                    │
+├────────────────────────────────────────────────────────────────┤
+│ □ Test Contact Support:                                       │
+│   - Go to website                                             │
+│   - Click Contact Support button                              │
+│   - Fill and submit form                                      │
+│   - Check if email received at ADMIN_EMAIL                    │
+│                                                                │
+│ □ Test Forgot Password:                                       │
+│   - Go to login page                                          │
+│   - Click "Forgot Password"                                   │
+│   - Enter email                                               │
+│   - Check if code received in email                           │
+│   - If no email: Check response JSON for 'dev_code'           │
+└────────────────────────────────────────────────────────────────┘
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📝 CONTOH KONFIGURASI:
+
+Before:
+define('SMTP_USERNAME', 'your-email@gmail.com');
+define('SMTP_PASSWORD', 'your-app-password');
+define('ADMIN_EMAIL', 'admin@retroloved.com');
+
+After:
+define('SMTP_USERNAME', 'john.doe@gmail.com');
+define('SMTP_PASSWORD', 'abcdefghijklmnop');
+define('ADMIN_EMAIL', 'john.doe@gmail.com');
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+⚠️ TROUBLESHOOTING:
+
+Problem: "Invalid credentials" atau "Authentication failed"
+Solution:
+  • Pastikan App Password benar (16 karakter, tanpa spasi)
+  • Pastikan 2-Step Verification aktif
+  • Generate App Password baru jika perlu
+
+Problem: "Could not instantiate mail function"
+Solution:
+  • PHPMailer belum terinstall
+  • Download manual dari GitHub
+  • Atau gunakan MAIL mode (edit EMAIL_METHOD)
+
+Problem: Email tidak diterima
+Solution:
+  • Check spam folder
+  • Verify ADMIN_EMAIL benar
+  • Check error log di PHP
+
+Problem: PHPMailer class not found
+Solution:
+  • Verify vendor/phpmailer/phpmailer/src/PHPMailer.php exist
+  • Check autoloader: vendor/autoload.php
+  • Try downloading PHPMailer again
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+💡 TIPS:
+
+✅ Gmail SMTP is FREE (500 emails/day limit)
+✅ Use same email for SMTP_USERNAME and ADMIN_EMAIL (easier)
+✅ Keep App Password secret (never commit to Git)
+✅ Test with test script first before real features
+✅ Development mode works perfectly without email server
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📚 DOCUMENTATION:
+
+Complete Guide: PHPMAILER_SETUP_GUIDE.md
+Quick Reference: PHPMAILER_QUICK_REFERENCE.txt
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🎉 STATUS: READY FOR CONFIGURATION!
+
+Follow the checklist above step by step.
+Take your time and test each step!
+

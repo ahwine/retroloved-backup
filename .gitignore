@@ -1,0 +1,40 @@
+# RetroLoved - Git Ignore File (PRIVATE BACKUP VERSION)
+# Untuk backup pribadi - semua file akan diupload
+
+# Tetap ignore file temporary dan log
+*.log
+*.tmp
+*.temp
+
+# XAMPP logs
+*.log
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# Mac
+.DS_Store
+
+# IDE
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+# Config files (diizinkan untuk private backup)
+# config/database.php - AKAN DIUPLOAD
+# config/email.php - AKAN DIUPLOAD
+
+# Node modules (if using any build tools)
+node_modules/
+
+# Composer (diizinkan untuk backup lengkap)
+# vendor/ - AKAN DIUPLOAD
